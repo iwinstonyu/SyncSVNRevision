@@ -71,6 +71,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <CustomBuildBeforeTargets>PrepareForBuild</CustomBuildBeforeTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -93,6 +94,15 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <CustomBuildStep>
+      <Command>subwcrev.exe $(SolutionDir) $(ProjectDir)svn_revision_template.h $(ProjectDir)svn_revision.h </Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Message>generate svn revision info</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>NonexistentFolder</Outputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -146,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="svn_revision.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
