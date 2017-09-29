@@ -72,6 +72,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <CustomBuildBeforeTargets>PrepareForBuild</CustomBuildBeforeTargets>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -95,14 +96,20 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <CustomBuildStep>
-      <Command>subwcrev.exe $(SolutionDir) $(ProjectDir)svn_revision_template.h $(ProjectDir)svn_revision.h </Command>
+      <Command>..\\Base\\SyncSVN\\sync_svn_revision.bat</Command>
     </CustomBuildStep>
     <CustomBuildStep>
-      <Message>generate svn revision info</Message>
+      <Message>sync svn revision info</Message>
     </CustomBuildStep>
     <CustomBuildStep>
-      <Outputs>NonexistentFolder</Outputs>
+      <Outputs>nonexistentfile</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -156,7 +163,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="svn_revision.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>

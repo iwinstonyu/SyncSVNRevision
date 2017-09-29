@@ -3,9 +3,9 @@
 
 #include "stdafx.h"
 #include <iostream>
+// 这个头文件是运行脚本从Subversion获取到的版本信息
 #include "svn_revision.h"
 using namespace std;
-
 
 
 int main()
