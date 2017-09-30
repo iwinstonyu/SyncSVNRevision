@@ -252,3 +252,5 @@ paket-files/
 *.sln.iml
 
 .svn
+
+svn_revision.h
